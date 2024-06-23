@@ -13,8 +13,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.badal.whatsapp_clone.ui.theme.WhatsAppCloneTheme
-import com.badal.whatsapp_clone.ui.view.HomeScreen
-import com.badal.whatsapp_clone.ui.view.SplashScreen
+import com.badal.whatsapp_clone.ui.view.home.HomeScreen
+import com.badal.whatsapp_clone.ui.view.splash.SplashScreen
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -44,4 +44,5 @@ fun MyApp() {
         }
 
     }
+
 }

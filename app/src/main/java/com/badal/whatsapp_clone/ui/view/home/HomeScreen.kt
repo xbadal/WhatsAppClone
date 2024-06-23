@@ -1,4 +1,4 @@
-package com.badal.whatsapp_clone.ui.view
+package com.badal.whatsapp_clone.ui.view.home
 
 import android.annotation.SuppressLint
 import androidx.compose.material.icons.Icons
