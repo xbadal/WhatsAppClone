@@ -2,6 +2,12 @@ package com.badal.whatsapp_clone.ui.view.home
 
 import android.annotation.SuppressLint
 import android.icu.text.CaseMap.Title
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Email
@@ -29,12 +35,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import com.badal.whatsapp_clone.ui.theme.PrimaryColor
+import com.badal.whatsapp_clone.ui.view.calls.CallsScreen
+import com.badal.whatsapp_clone.ui.view.chat.ChatScreen
+import com.badal.whatsapp_clone.ui.view.communities.CommunitiesScreen
+import com.badal.whatsapp_clone.ui.view.settings.SettingsScreen
+import com.badal.whatsapp_clone.ui.view.updates.UpdatesScreen
 
 
 data class BottomNavigationItem(
@@ -46,7 +58,6 @@ data class BottomNavigationItem(
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen() {
 
@@ -125,8 +136,22 @@ fun HomeScreen() {
                 }
 
             }
-        }) {
+        }, content = { paddingValues ->
+            Box(modifier = Modifier.padding(paddingValues)) {
+                GetPages(selectedItemIndex)
+            }
+        }
+    )
+}
 
-
+@Composable
+fun GetPages(index: Int = 0) {
+    return when (index) {
+        0 -> UpdatesScreen()
+        1 -> CallsScreen()
+        2 -> CommunitiesScreen()
+        3 -> ChatScreen()
+        4 -> SettingsScreen()
+        else -> UpdatesScreen()
     }
 }
